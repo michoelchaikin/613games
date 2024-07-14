@@ -7,6 +7,13 @@
     "icon": "🧩"
   },
   {
+    "id": "hide-n-seek",
+    "name": "Hide N Seek",
+    "description": "A fun 3D simulation game where you play hide and seek with kids. Search the house to find them!",
+    "embedUrl": "https://www.crazygames.com/embed/hide-n-seek",
+    "icon": "🕵️"
+  },
+  {
     "id": "bubble-pop-classic",
     "name": "Bubble Pop Classic",
     "description": "Bubble Pop Classic is a fascinating bubble shooter game with a stage-based style, each with its challenge!",
