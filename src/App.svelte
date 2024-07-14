@@ -15,10 +15,10 @@
 </script>
 
 <main class="bg-gray-100 min-h-screen flex">
-  <div class="absolute top-2 right-2 text-sm font-bold text-primary text-right w-full pr-2">בס"ד</div>
+  <div class="absolute top-2 right-2 text-sm font-bold text-primary text-right pr-2">בס"ד</div>
   
   <!-- Game Menu -->
-  <div class="w-64 bg-white shadow-lg p-4 flex flex-col">
+  <div class="w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto">
     <h2 class="text-2xl font-bold text-primary mb-6">Games</h2>
     <ul class="space-y-2 flex-grow">
       {#each games as game}
@@ -41,7 +41,7 @@
   </div>
 
   <!-- Main Content -->
-  <div class="flex-grow p-8">
+  <div class="flex-grow p-8 ml-64">
     <header class="text-center mb-12">
       <h1 class="text-5xl font-bold text-primary mb-2">{title}</h1>
       <h2 class="text-2xl text-secondary">Vetted Kosher Games</h2>
