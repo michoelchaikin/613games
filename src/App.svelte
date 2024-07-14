@@ -14,10 +14,12 @@
     selectedGame = game;
   }
 
-  $: filteredGames = games.filter(game =>
-    game.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    game.description.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  $: filteredGames = games
+    .filter(game =>
+      game.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      game.description.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => a.name.localeCompare(b.name));
 </script>
 
 <main class="bg-gray-100 min-h-screen flex">
