@@ -63,15 +63,21 @@
       <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
         <h3 class="text-2xl font-semibold text-primary mb-4">{selectedGame.name}</h3>
         <p class="text-gray-700 mb-4">{selectedGame.description}</p>
-        <iframe
-          title={selectedGame.name}
-          src={selectedGame.embedUrl}
-          class="w-full h-[600px] border-none"
-          style="width: 100%; height: 600px;"
-          frameborder="0"
-          allow="gamepad *;"
-          allowfullscreen
-        ></iframe>
+        {#if selectedGame.embedUrl.includes('embed')}
+          <iframe
+            title={selectedGame.name}
+            src={selectedGame.embedUrl}
+            class="w-full h-[600px] border-none"
+            style="width: 100%; height: 600px;"
+            frameborder="0"
+            allow="gamepad *;"
+            allowfullscreen
+          ></iframe>
+        {:else}
+          <a href={selectedGame.embedUrl} target="_blank" rel="noopener noreferrer" class="inline-block bg-primary text-white font-bold py-2 px-4 rounded hover:bg-primary-dark transition-colors duration-200">
+            Play {selectedGame.name}
+          </a>
+        {/if}
       </div>
     {:else}
       <div class="bg-white shadow-lg rounded-lg p-8 mb-8">

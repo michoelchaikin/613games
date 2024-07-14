@@ -12,5 +12,12 @@
     "description": "An exciting motorcycle racing game with challenging tracks and stunts!",
     "embedUrl": "https://www.crazygames.com/embed/crazy-motorcycle",
     "icon": "🏍️"
+  },
+  {
+    "id": "game6",
+    "name": "Stumble Guys",
+    "description": "A multiplayer knockout game with up to 32 players online competing through obstacle courses until one victor remains!",
+    "embedUrl": "https://www.stumbleguys.com/play",
+    "icon": "🏃"
   }
 ]
