@@ -122,7 +122,7 @@
       bind:value={searchTerm}
       class="w-full p-2 mb-4 border border-background rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light"
     />
-    <ul class="space-y-2 flex-grow overflow-y-auto">
+    <ul class="space-y-2 flex-grow overflow-y-auto games-list">
       {#each filteredGames as game}
         <li>
           <button
