@@ -54,8 +54,8 @@
         <iframe
           title={selectedGame.name}
           src={selectedGame.embedUrl}
-          class="w-full h-96 border-none"
-          style="width: 100%; height: 100%;"
+          class="w-full h-[600px] border-none"
+          style="width: 100%; height: 600px;"
           frameborder="0"
           allow="gamepad *;"
           allowfullscreen
