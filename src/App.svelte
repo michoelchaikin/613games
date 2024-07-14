@@ -48,23 +48,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 </svelte:head>
 
-<main class="bg-background min-h-screen flex font-sans">
+<main class="bg-background min-h-screen flex flex-col md:flex-row font-sans">
   <div class="absolute top-2 right-2 text-sm font-bold text-primary text-right pr-2">בס"ד</div>
   
-  <!-- Hamburger Menu Button (visible when menu is closed) -->
+  <!-- Hamburger Menu Button (visible when menu is closed on mobile) -->
   {#if !isMenuOpen}
     <button
       on:click={() => isMenuOpen = true}
-      class="fixed top-4 left-4 z-20 bg-primary text-white p-2 w-10 h-10 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-light flex items-center justify-center hover:bg-primary-dark transition-colors duration-200"
+      class="fixed top-4 left-4 z-20 bg-primary text-white p-2 w-10 h-10 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-light flex items-center justify-center hover:bg-primary-dark transition-colors duration-200 md:hidden"
     >
       <span class="text-xl">&#9776;</span> <!-- Hamburger menu symbol -->
     </button>
   {/if}
   
   <!-- Game Menu -->
-  <div class="w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto transition-transform duration-300 ease-in-out z-10"
+  <div class="w-full md:w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto transition-transform duration-300 ease-in-out z-10"
        class:translate-x-0={isMenuOpen}
-       class:-translate-x-full={!isMenuOpen}>
+       class:-translate-x-full={!isMenuOpen}
+       class:md:translate-x-0={true}>
     <div class="flex justify-between items-center mb-4">
       <h2 class="text-2xl font-bold text-primary">Games</h2>
       {#if isMenuOpen}
@@ -103,30 +104,29 @@
   </div>
 
   <!-- Main Content -->
-  <div class="flex-grow p-8 transition-all duration-300 ease-in-out" class:ml-64={isMenuOpen} class:ml-0={!isMenuOpen}>
-    <header class="text-center mb-12">
-      <h1 class="text-5xl font-bold text-primary mb-2 font-heading">{title}</h1>
-      <h2 class="text-2xl text-secondary font-heading">Vetted Kosher Games</h2>
+  <div class="flex-grow p-4 md:p-8 transition-all duration-300 ease-in-out md:ml-64">
+    <header class="text-center mb-8 md:mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary mb-2 font-heading">{title}</h1>
+      <h2 class="text-xl md:text-2xl text-secondary font-heading">Vetted Kosher Games</h2>
     </header>
 
     {#if selectedGame}
-      <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
-        <h3 class="text-2xl font-semibold text-primary mb-4 font-heading">{selectedGame.name}</h3>
+      <div class="bg-white shadow-lg rounded-lg p-4 md:p-8 mb-8">
+        <h3 class="text-xl md:text-2xl font-semibold text-primary mb-4 font-heading">{selectedGame.name}</h3>
         <p class="text-text mb-4">{selectedGame.description}</p>
         <div class="relative">
           <iframe
             bind:this={iframeElement}
             title={selectedGame.name}
             src={selectedGame.embedUrl}
-            class="w-full h-[600px] border-none"
-            style="width: 100%; height: 600px;"
+            class="w-full h-[300px] md:h-[600px] border-none"
             frameborder="0"
             allow="gamepad *;"
             allowfullscreen
           ></iframe>
           <button
             on:click={toggleFullscreen}
-            class="absolute top-2 right-2 bg-accent text-white px-3 py-1 rounded-lg shadow hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-light transition-colors duration-200"
+            class="absolute top-2 right-2 bg-accent text-white px-2 py-1 md:px-3 md:py-1 text-sm md:text-base rounded-lg shadow hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-light transition-colors duration-200"
           >
             Fullscreen
           </button>
