@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .menu-slide {
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform: translateX(-100%);
+  }
+
+  .menu-open {
+    transform: translateX(0);
+  }
+}

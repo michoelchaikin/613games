@@ -65,9 +65,8 @@
   {/if}
   
   <!-- Game Menu -->
-  <div class="w-full md:w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto transition-transform duration-300 ease-in-out z-10"
-       class:translate-x-0={isMenuOpen}
-       class:-translate-x-full={!isMenuOpen}
+  <div class="w-full md:w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto z-10 menu-slide"
+       class:menu-open={isMenuOpen}
        class:md:translate-x-0={true}>
     <div class="flex justify-between items-center mb-4">
       <h2 class="text-2xl font-bold text-primary">Games</h2>
