@@ -33,5 +33,12 @@
     "description": "A fun and challenging fruit-slicing game where you swipe to slice various fruits while avoiding bombs.",
     "embedUrl": "https://www.crazygames.com/embed/slice-master",
     "icon": "🍉"
+  },
+  {
+    "id": "racing-limits",
+    "name": "Racing Limits",
+    "description": "A high-speed racing game with multiple modes, realistic physics, and customizable cars.",
+    "embedUrl": "https://www.crazygames.com/embed/racing-limits",
+    "icon": "🏎️"
   }
 ]
