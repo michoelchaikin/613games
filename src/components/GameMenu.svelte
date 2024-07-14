@@ -54,14 +54,12 @@
      on:touchend={handleTouchEnd}>
   <div class="flex justify-between items-center mb-4">
     <h2 class="text-2xl font-bold text-primary">Games</h2>
-    {#if isMenuOpen}
-      <button
-        on:click={() => isMenuOpen = false}
-        class="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary rounded-full p-1"
-      >
-        <span class="text-lg">&#x2715;</span> <!-- X symbol -->
-      </button>
-    {/if}
+    <button
+      on:click={() => isMenuOpen = false}
+      class="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary rounded-full p-1 md:hidden"
+    >
+      <span class="text-lg">&#x2715;</span> <!-- X symbol -->
+    </button>
   </div>
   <input
     type="text"
