@@ -51,23 +51,21 @@
 <main class="bg-background min-h-screen flex font-sans">
   <div class="absolute top-2 right-2 text-sm font-bold text-primary text-right pr-2">בס"ד</div>
   
-  <!-- Toggle Menu Button -->
-  <button
-    on:click={() => isMenuOpen = !isMenuOpen}
-    class="fixed top-4 left-4 z-20 bg-primary text-white p-2 w-10 h-10 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-light flex items-center justify-center hover:bg-primary-dark transition-colors duration-200"
-  >
-    {#if isMenuOpen}
-      <span class="text-xl">&#x2715;</span> <!-- X symbol -->
-    {:else}
-      <span class="text-xl">&#9776;</span> <!-- Hamburger menu symbol -->
-    {/if}
-  </button>
-
   <!-- Game Menu -->
   <div class="w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto transition-transform duration-300 ease-in-out z-10"
        class:translate-x-0={isMenuOpen}
        class:-translate-x-full={!isMenuOpen}>
-    <h2 class="text-2xl font-bold text-primary mb-4 mt-12">Games</h2>
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold text-primary">Games</h2>
+      {#if isMenuOpen}
+        <button
+          on:click={() => isMenuOpen = false}
+          class="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-light rounded-full p-1"
+        >
+          <span class="text-lg">&#x2715;</span> <!-- X symbol -->
+        </button>
+      {/if}
+    </div>
     <input
       type="text"
       placeholder="Search games..."
