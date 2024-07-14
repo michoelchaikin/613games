@@ -8,6 +8,24 @@
   let searchTerm = '';
   let iframeElement;
   let isMenuOpen = true;
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX;
+  }
+
+  function handleTouchEnd(event) {
+    touchEndX = event.changedTouches[0].clientX;
+    handleSwipe();
+  }
+
+  function handleSwipe() {
+    const swipeThreshold = 100; // minimum distance for a swipe
+    if (touchStartX - touchEndX > swipeThreshold) {
+      isMenuOpen = false;
+    }
+  }
 
   onMount(async () => {
     const response = await fetch('games.json');
@@ -72,7 +90,9 @@
   <!-- Game Menu -->
   <div class="w-full md:w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto z-10 menu-slide"
        class:menu-open={isMenuOpen}
-       class:md:menu-open={true}>
+       class:md:menu-open={true}
+       on:touchstart={handleTouchStart}
+       on:touchend={handleTouchEnd}>
     <div class="flex justify-between items-center mb-4">
       <h2 class="text-2xl font-bold text-primary">Games</h2>
       {#if isMenuOpen}
