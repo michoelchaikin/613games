@@ -29,7 +29,7 @@
     </div>
 
     <footer class="text-center text-gray-500">
-      <p>&copy; 2023 613games. All rights reserved.</p>
+      <p>&copy; {new Date().getFullYear()} 613games. All rights reserved.</p>
     </footer>
   </div>
 </main>
