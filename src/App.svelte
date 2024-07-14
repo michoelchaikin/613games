@@ -47,22 +47,21 @@
 <main class="bg-gray-100 min-h-screen flex">
   <div class="absolute top-2 right-2 text-sm font-bold text-primary text-right pr-2">בס"ד</div>
   
-  <!-- Toggle Menu Button -->
-  <button
-    on:click={() => isMenuOpen = !isMenuOpen}
-    class="fixed top-4 left-4 z-20 bg-primary text-white p-2 w-10 h-10 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary flex items-center justify-center"
-  >
-    {#if isMenuOpen}
-      <span class="text-xl">&#x2715;</span> <!-- X symbol -->
-    {:else}
-      <span class="text-xl">&#9776;</span> <!-- Hamburger menu symbol -->
-    {/if}
-  </button>
-
   <!-- Game Menu -->
   <div class="w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto transition-transform duration-300 ease-in-out z-10"
        class:translate-x-0={isMenuOpen}
        class:-translate-x-full={!isMenuOpen}>
+    <!-- Toggle Menu Button -->
+    <button
+      on:click={() => isMenuOpen = !isMenuOpen}
+      class="absolute top-4 right-4 z-20 bg-primary text-white p-2 w-10 h-10 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary flex items-center justify-center"
+    >
+      {#if isMenuOpen}
+        <span class="text-xl">&#x2715;</span> <!-- X symbol -->
+      {:else}
+        <span class="text-xl">&#9776;</span> <!-- Hamburger menu symbol -->
+      {/if}
+    </button>
     <h2 class="text-2xl font-bold text-primary mb-4">Games</h2>
     <input
       type="text"
