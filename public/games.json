@@ -1,26 +1,5 @@
 [
   {
-    "id": "game1",
-    "name": "Kosher Puzzle",
-    "description": "A fun puzzle game with kosher themes",
-    "embedUrl": "https://example.com/embed/kosher-puzzle",
-    "icon": "🧩"
-  },
-  {
-    "id": "game2",
-    "name": "Torah Trivia",
-    "description": "Test your Torah knowledge",
-    "embedUrl": "https://example.com/embed/torah-trivia",
-    "icon": "📚"
-  },
-  {
-    "id": "game3",
-    "name": "Shabbat Simulator",
-    "description": "Experience a virtual Shabbat",
-    "embedUrl": "https://example.com/embed/shabbat-simulator",
-    "icon": "🕯️"
-  },
-  {
     "id": "game4",
     "name": "Bubble Pop Classic",
     "description": "Bubble Pop Classic is a fascinating bubble shooter game with a stage-based style, each with its challenge!",
