@@ -51,6 +51,23 @@
      class:menu-open={isMenuOpen}
      on:touchstart={handleTouchStart}
      on:touchend={handleTouchEnd}>
+
+<style>
+  .menu-slide {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .menu-open {
+    transform: translateX(0);
+  }
+
+  @media (min-width: 768px) {
+    .menu-slide {
+      transform: translateX(0);
+    }
+  }
+</style>
   <div class="flex justify-between items-center mb-4">
     <h2 class="text-2xl font-bold text-primary">Games</h2>
     <button
