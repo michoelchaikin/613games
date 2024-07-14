@@ -26,5 +26,12 @@
     "description": "Bubble Pop Classic is a fascinating bubble shooter game with a stage-based style, each with its challenge!",
     "embedUrl": "https://www.crazygames.com/embed/bubble-pop-classic",
     "icon": "🫧"
+  },
+  {
+    "id": "game5",
+    "name": "Crazy Motorcycle",
+    "description": "An exciting motorcycle racing game with challenging tracks and stunts!",
+    "embedUrl": "https://www.crazygames.com/embed/crazy-motorcycle",
+    "icon": "🏍️"
   }
 ]
