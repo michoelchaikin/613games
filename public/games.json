@@ -19,5 +19,12 @@
     "description": "A multiplayer knockout game with up to 32 players online competing through obstacle courses until one victor remains!",
     "embedUrl": "https://www.stumbleguys.com/play",
     "icon": "🏃"
+  },
+  {
+    "id": "game7",
+    "name": "Moto X3M",
+    "description": "A popular bike racing game with 25 challenging levels. Race up and down hills, jump over obstacles, and perform stunts in this action-packed game!",
+    "embedUrl": "https://moto-x3m.net/",
+    "icon": "🏍️"
   }
 ]
