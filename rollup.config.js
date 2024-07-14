@@ -5,8 +5,6 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 import postcss from 'rollup-plugin-postcss';
-import tailwindcss from 'tailwindcss';
-import autoprefixer from 'autoprefixer';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -48,12 +46,12 @@ export default {
         }),
         // Process Tailwind CSS
         postcss({
+            config: {
+                path: './postcss.config.js'
+            },
             extensions: ['.css'],
-            plugins: [
-                tailwindcss(),
-                autoprefixer(),
-            ],
-            extract: 'public/bundle.css',
+            extract: 'bundle.css',
+            minimize: true,
         }),
 
         // If you have external dependencies installed from
