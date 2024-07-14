@@ -39,6 +39,11 @@
     }
   }
 
+  function goToHome() {
+    navigate('');
+    selectedGame = null;
+  }
+
   $: filteredGames = games
     .filter(game =>
       game.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -108,7 +113,9 @@
   <!-- Main Content -->
   <div class="flex-grow p-4 md:p-8 transition-all duration-300 ease-in-out md:ml-64">
     <header class="text-center mb-8 md:mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold text-primary mb-2 font-heading">{title}</h1>
+      <button on:click={goToHome} class="focus:outline-none focus:ring-2 focus:ring-primary-light rounded-lg">
+        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-2 font-heading hover:text-primary-dark transition-colors duration-200">{title}</h1>
+      </button>
       <h2 class="text-xl md:text-2xl text-secondary font-heading">Vetted Kosher Games</h2>
     </header>
 
