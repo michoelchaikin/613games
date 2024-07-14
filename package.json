@@ -5,8 +5,8 @@
     "build": "npm run build:css && rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public",
-    "build:css": "tailwindcss -i ./src/tailwind.css -o ./public/build/tailwind.css",
-    "watch:css": "tailwindcss -i ./src/tailwind.css -o ./public/build/tailwind.css --watch"
+    "build:css": "tailwindcss -i ./src/tailwind.css -o ./public/tailwind.css",
+    "watch:css": "tailwindcss -i ./src/tailwind.css -o ./public/tailwind.css --watch"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",

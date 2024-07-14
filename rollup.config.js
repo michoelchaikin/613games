@@ -53,7 +53,7 @@ export default {
                 tailwindcss(),
                 autoprefixer(),
             ],
-            extract: 'bundle.css',
+            extract: 'public/bundle.css',
         }),
 
         // If you have external dependencies installed from
