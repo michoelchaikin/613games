@@ -49,7 +49,6 @@
 
 <div class="w-full md:w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 z-10 menu-slide"
      class:menu-open={isMenuOpen}
-     class:md:menu-open={true}
      on:touchstart={handleTouchStart}
      on:touchend={handleTouchEnd}>
   <div class="flex justify-between items-center mb-4">
