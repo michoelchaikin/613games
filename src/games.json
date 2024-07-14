@@ -1,5 +1,12 @@
 [
   {
+    "id": "spot-the-difference",
+    "name": "Spot the Difference",
+    "description": "A challenging game where you need to find differences between two similar images related to the concept of Ribbis.",
+    "embedUrl": "https://torahlive.com/courses/ribbis/spot-difference-game",
+    "icon": "🔍"
+  },
+  {
     "id": "bubble-pop-classic",
     "name": "Bubble Pop Classic",
     "description": "Bubble Pop Classic is a fascinating bubble shooter game with a stage-based style, each with its challenge!",
