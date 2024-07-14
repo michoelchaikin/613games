@@ -19,5 +19,12 @@
     "description": "A time trial bike racing game with 22 levels, wild stunts, and challenging obstacles.",
     "embedUrl": "https://www.crazygames.com/embed/moto-x3m",
     "icon": "🏍️"
+  },
+  {
+    "id": "game7",
+    "name": "Run 3",
+    "description": "An addictive endless runner game set in space where you navigate through a series of challenging tunnels.",
+    "embedUrl": "https://www.crazygames.com/embed/run-3",
+    "icon": "🏃"
   }
 ]
