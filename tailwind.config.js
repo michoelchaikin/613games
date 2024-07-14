@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        roboto: ['Roboto', 'sans-serif'],
+        body: ['Nunito Sans', 'sans-serif'],
         heading: ['Poppins', 'sans-serif'],
       },
       screens: {

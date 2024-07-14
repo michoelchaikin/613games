@@ -39,10 +39,10 @@
 </script>
 
 <svelte:head>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
 </svelte:head>
 
-<main class="bg-background min-h-screen flex flex-col md:flex-row font-roboto">
+<main class="bg-background min-h-screen flex flex-col md:flex-row font-body">
   <div class="absolute top-2 right-2 text-sm font-bold text-primary text-right pr-2">בס"ד</div>
   
   <!-- Hamburger Menu Button (visible when menu is closed on mobile) -->
