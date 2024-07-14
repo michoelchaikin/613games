@@ -1,34 +1,34 @@
 [
   {
-    "id": "game4",
+    "id": "bubble-pop-classic",
     "name": "Bubble Pop Classic",
     "description": "Bubble Pop Classic is a fascinating bubble shooter game with a stage-based style, each with its challenge!",
     "embedUrl": "https://www.crazygames.com/embed/bubble-pop-classic",
     "icon": "🧼"
   },
   {
-    "id": "game5",
+    "id": "crazy-motorcycle",
     "name": "Crazy Motorcycle",
     "description": "An exciting motorcycle racing game with challenging tracks and stunts!",
     "embedUrl": "https://www.crazygames.com/embed/crazy-motorcycle",
     "icon": "🏍️"
   },
   {
-    "id": "game6",
+    "id": "moto-x3m",
     "name": "Moto X3M",
     "description": "A time trial bike racing game with 22 levels, wild stunts, and challenging obstacles.",
     "embedUrl": "https://playmotox3m.com/games/moto-x3m/index.html",
     "icon": "🏍️"
   },
   {
-    "id": "game7",
+    "id": "run-3",
     "name": "Run 3",
     "description": "An addictive endless runner game set in space where you navigate through a series of challenging tunnels.",
     "embedUrl": "https://www.crazygames.com/embed/run-3",
     "icon": "🏃"
   },
   {
-    "id": "game8",
+    "id": "slice-master",
     "name": "Slice Master",
     "description": "A fun and challenging fruit-slicing game where you swipe to slice various fruits while avoiding bombs.",
     "embedUrl": "https://www.crazygames.com/embed/slice-master",
