@@ -100,29 +100,30 @@
   {/if}
   
   <!-- Game Menu -->
-  <div class="w-full md:w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto z-10 menu-slide"
+  <div class="w-full md:w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 z-10 menu-slide"
        class:menu-open={isMenuOpen}
        class:md:menu-open={true}
        on:touchstart={handleTouchStart}
        on:touchend={handleTouchEnd}>
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-2xl font-bold text-primary">Games</h2>
-      {#if isMenuOpen}
-        <button
-          on:click={() => isMenuOpen = false}
-          class="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-light rounded-full p-1"
-        >
-          <span class="text-lg">&#x2715;</span> <!-- X symbol -->
-        </button>
-      {/if}
-    </div>
-    <input
-      type="text"
-      placeholder="Search games..."
-      bind:value={searchTerm}
-      class="w-full p-2 mb-4 border border-background rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light"
-    />
-    <ul class="space-y-2 flex-grow">
+    <div class="flex flex-col h-full">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold text-primary">Games</h2>
+        {#if isMenuOpen}
+          <button
+            on:click={() => isMenuOpen = false}
+            class="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-light rounded-full p-1"
+          >
+            <span class="text-lg">&#x2715;</span> <!-- X symbol -->
+          </button>
+        {/if}
+      </div>
+      <input
+        type="text"
+        placeholder="Search games..."
+        bind:value={searchTerm}
+        class="w-full p-2 mb-4 border border-background rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light"
+      />
+      <ul class="space-y-2 flex-grow overflow-y-auto">
       {#each filteredGames as game}
         <li>
           <button
