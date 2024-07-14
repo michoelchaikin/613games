@@ -47,17 +47,17 @@
     .sort((a, b) => a.name.localeCompare(b.name));
 </script>
 
-<div class="w-full md:w-64 bg-gradient-to-br from-primary-light/40 via-primary/60 to-primary-dark/80 shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 z-10 menu-slide"
+<div class="w-full md:w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 z-10 menu-slide"
      class:menu-open={isMenuOpen}
      class:md:menu-open={true}
      on:touchstart={handleTouchStart}
      on:touchend={handleTouchEnd}>
   <div class="flex justify-between items-center mb-4">
-    <h2 class="text-2xl font-bold text-primary-dark">Games</h2>
+    <h2 class="text-2xl font-bold text-primary">Games</h2>
     {#if isMenuOpen}
       <button
         on:click={() => isMenuOpen = false}
-        class="text-primary-dark hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary rounded-full p-1"
+        class="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary rounded-full p-1"
       >
         <span class="text-lg">&#x2715;</span> <!-- X symbol -->
       </button>
@@ -67,14 +67,14 @@
     type="text"
     placeholder="Search games..."
     bind:value={searchTerm}
-    class="w-full p-2 mb-4 border border-primary bg-white bg-opacity-30 text-primary-dark placeholder-primary-dark placeholder-opacity-70 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+    class="w-full p-2 mb-4 border border-primary bg-background-light text-primary placeholder-primary placeholder-opacity-70 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
   />
   <ul class="space-y-2 flex-grow overflow-y-auto games-list px-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
     {#each filteredGames as game}
       <li>
         <button
           class="w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 ease-in-out
-                 {selectedGame === game ? 'bg-primary text-white' : 'text-primary-dark hover:bg-white hover:bg-opacity-40'}
+                 {selectedGame === game ? 'bg-primary text-white' : 'text-primary hover:bg-background-light'}
                  focus:outline-none focus:ring-2 focus:ring-primary"
           on:click={() => selectGame(game)}
         >
@@ -87,11 +87,11 @@
   <div class="mt-auto pt-4 border-t border-background">
     <button
       on:click={goToAbout}
-      class="w-full text-left p-3 rounded-lg transition-colors duration-200 ease-in-out text-primary-dark hover:bg-white hover:bg-opacity-40 focus:outline-none focus:ring-2 focus:ring-primary"
+      class="w-full text-left p-3 rounded-lg transition-colors duration-200 ease-in-out text-primary hover:bg-background-light focus:outline-none focus:ring-2 focus:ring-primary"
     >
       <span class="mr-3 text-xl">ℹ️</span>
       <span class="font-medium">About</span>
     </button>
-    <p class="text-sm text-primary-dark text-opacity-80 mt-4">&copy; {new Date().getFullYear()} 613games</p>
+    <p class="text-sm text-primary text-opacity-80 mt-4">&copy; {new Date().getFullYear()} 613games</p>
   </div>
 </div>
