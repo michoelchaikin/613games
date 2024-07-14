@@ -34,6 +34,9 @@
 
   function goToAbout() {
     navigate('about');
+    if (window.innerWidth < 768) {  // 768px is the 'md' breakpoint in Tailwind
+      isMenuOpen = false;
+    }
   }
 
   $: filteredGames = games
