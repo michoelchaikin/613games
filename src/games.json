@@ -12,5 +12,12 @@
     "description": "An exciting motorcycle racing game with challenging tracks and stunts!",
     "embedUrl": "https://www.crazygames.com/embed/crazy-motorcycle",
     "icon": "🏍️"
+  },
+  {
+    "id": "game6",
+    "name": "Moto X3M",
+    "description": "A time trial bike racing game with 22 levels, wild stunts, and challenging obstacles.",
+    "embedUrl": "https://www.crazygames.com/embed/moto-x3m",
+    "icon": "🏍️"
   }
 ]
