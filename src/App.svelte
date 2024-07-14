@@ -2,32 +2,16 @@
   import { onMount } from 'svelte';
   import { route, navigate } from './router.js';
   import About from './About.svelte';
+  import GameMenu from './components/GameMenu.svelte';
+  import GameView from './components/GameView.svelte';
+  import HomeView from './components/HomeView.svelte';
 
   let title = '613games';
   let games = [];
   let selectedGame = null;
   let searchTerm = '';
-  let iframeElement;
   let isMenuOpen = true;
-  let touchStartX = 0;
-  let touchEndX = 0;
   let showAbout = false;
-
-  function handleTouchStart(event) {
-    touchStartX = event.touches[0].clientX;
-  }
-
-  function handleTouchEnd(event) {
-    touchEndX = event.changedTouches[0].clientX;
-    handleSwipe();
-  }
-
-  function handleSwipe() {
-    const swipeThreshold = 100; // minimum distance for a swipe
-    if (touchStartX - touchEndX > swipeThreshold) {
-      isMenuOpen = false;
-    }
-  }
 
   onMount(async () => {
     const response = await fetch('games.json');
@@ -47,39 +31,11 @@
     });
   });
 
-  function selectGame(game) {
-    navigate(game.id);
-    if (window.innerWidth < 768) {  // 768px is the 'md' breakpoint in Tailwind
-      isMenuOpen = false;
-    }
-  }
-
-  function toggleFullscreen() {
-    if (!document.fullscreenElement) {
-      iframeElement.requestFullscreen().catch(err => {
-        alert(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
-      });
-    } else {
-      document.exitFullscreen();
-    }
-  }
-
   function goToHome() {
     navigate('');
     selectedGame = null;
     showAbout = false;
   }
-
-  function goToAbout() {
-    navigate('about');
-  }
-
-  $: filteredGames = games
-    .filter(game =>
-      game.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      game.description.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .sort((a, b) => a.name.localeCompare(b.name));
 </script>
 
 <svelte:head>
@@ -99,55 +55,7 @@
     </button>
   {/if}
   
-  <!-- Game Menu -->
-  <div class="w-full md:w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 z-10 menu-slide"
-       class:menu-open={isMenuOpen}
-       class:md:menu-open={true}
-       on:touchstart={handleTouchStart}
-       on:touchend={handleTouchEnd}>
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-2xl font-bold text-primary">Games</h2>
-      {#if isMenuOpen}
-        <button
-          on:click={() => isMenuOpen = false}
-          class="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-light rounded-full p-1"
-        >
-          <span class="text-lg">&#x2715;</span> <!-- X symbol -->
-        </button>
-      {/if}
-    </div>
-    <input
-      type="text"
-      placeholder="Search games..."
-      bind:value={searchTerm}
-      class="w-full p-2 mb-4 border border-background rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light"
-    />
-    <ul class="space-y-2 flex-grow overflow-y-auto games-list px-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-      {#each filteredGames as game}
-        <li>
-          <button
-            class="w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 ease-in-out
-                   {selectedGame === game ? 'bg-primary text-white' : 'hover:bg-background-light'}
-                   focus:outline-none focus:ring-2 focus:ring-primary-light"
-            on:click={() => selectGame(game)}
-          >
-            <span class="mr-3 text-xl">{game.icon}</span>
-            <span class="font-medium">{game.name}</span>
-          </button>
-        </li>
-      {/each}
-    </ul>
-    <div class="mt-auto pt-4 border-t border-background">
-      <button
-        on:click={goToAbout}
-        class="w-full text-left p-3 rounded-lg transition-colors duration-200 ease-in-out hover:bg-background-light focus:outline-none focus:ring-2 focus:ring-primary-light"
-      >
-        <span class="mr-3 text-xl">ℹ️</span>
-        <span class="font-medium">About</span>
-      </button>
-      <p class="text-sm text-text-light mt-4">&copy; {new Date().getFullYear()} 613games</p>
-    </div>
-  </div>
+  <GameMenu {games} {selectedGame} bind:isMenuOpen bind:searchTerm />
 
   <!-- Main Content -->
   <div class="flex-grow p-4 md:p-8 transition-all duration-300 ease-in-out md:ml-64">
@@ -161,47 +69,9 @@
     {#if showAbout}
       <About />
     {:else if selectedGame}
-      <div class="bg-white shadow-lg rounded-lg p-4 md:p-8 mb-8">
-        <h3 class="text-xl md:text-2xl font-semibold text-primary mb-4 font-heading">{selectedGame.name}</h3>
-        <p class="text-text mb-4">{selectedGame.description}</p>
-        <div class="relative">
-          <iframe
-            bind:this={iframeElement}
-            title={selectedGame.name}
-            src={selectedGame.embedUrl}
-            class="w-full h-[300px] md:h-[600px] border-none"
-            frameborder="0"
-            allow="gamepad *;"
-            allowfullscreen
-          ></iframe>
-          <button
-            on:click={toggleFullscreen}
-            class="absolute top-2 right-2 bg-accent text-white px-2 py-1 md:px-3 md:py-1 text-sm md:text-base rounded-lg shadow hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-light transition-colors duration-200"
-          >
-            Fullscreen
-          </button>
-        </div>
-      </div>
+      <GameView {selectedGame} />
     {:else}
-      <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
-        <p class="text-lg text-text mb-4">Welcome to 613games, your source for safe and appropriate gaming content.</p>
-        
-        <section class="mb-8">
-          <h3 class="text-2xl font-semibold text-primary mb-4 font-heading">About Us</h3>
-          <p class="text-text">We provide a curated selection of pre-approved games that are embedded within our application. Our goal is to offer a safe and appropriate gaming environment for our community.</p>
-        </section>
-
-        <section>
-          <h3 class="text-2xl font-semibold text-primary mb-4 font-heading">Our Features</h3>
-          <ul class="list-disc list-inside text-text">
-            <li>Carefully selected and vetted games</li>
-            <li>Safe and appropriate content</li>
-            <li>Easy-to-use interface</li>
-            <li>Embedded game experience</li>
-          </ul>
-        </section>
-      </div>
+      <HomeView />
     {/if}
-
   </div>
 </main>
