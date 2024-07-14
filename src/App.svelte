@@ -44,13 +44,13 @@
     .sort((a, b) => a.name.localeCompare(b.name));
 </script>
 
-<main class="bg-gray-100 min-h-screen flex">
+<main class="bg-background min-h-screen flex">
   <div class="absolute top-2 right-2 text-sm font-bold text-primary text-right pr-2">בס"ד</div>
   
   <!-- Toggle Menu Button -->
   <button
     on:click={() => isMenuOpen = !isMenuOpen}
-    class="fixed top-4 left-4 z-20 bg-primary text-white p-2 w-10 h-10 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary flex items-center justify-center"
+    class="fixed top-4 left-4 z-20 bg-primary text-white p-2 w-10 h-10 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-light flex items-center justify-center hover:bg-primary-dark transition-colors duration-200"
   >
     {#if isMenuOpen}
       <span class="text-xl">&#x2715;</span> <!-- X symbol -->
@@ -68,15 +68,15 @@
       type="text"
       placeholder="Search games..."
       bind:value={searchTerm}
-      class="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+      class="w-full p-2 mb-4 border border-background rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light"
     />
     <ul class="space-y-2 flex-grow">
       {#each filteredGames as game}
         <li>
           <button
             class="w-full text-left p-3 rounded-lg transition-colors duration-200 ease-in-out
-                   {selectedGame === game ? 'bg-primary text-white' : 'hover:bg-gray-100'}
-                   focus:outline-none focus:ring-2 focus:ring-primary"
+                   {selectedGame === game ? 'bg-primary text-white' : 'hover:bg-background-light'}
+                   focus:outline-none focus:ring-2 focus:ring-primary-light"
             on:click={() => selectGame(game)}
           >
             <span class="mr-3 text-xl">{game.icon}</span>
@@ -85,8 +85,8 @@
         </li>
       {/each}
     </ul>
-    <div class="mt-auto pt-4 border-t border-gray-200">
-      <p class="text-sm text-gray-500">&copy; {new Date().getFullYear()} 613games</p>
+    <div class="mt-auto pt-4 border-t border-background">
+      <p class="text-sm text-text-light">&copy; {new Date().getFullYear()} 613games</p>
     </div>
   </div>
 
@@ -100,7 +100,7 @@
     {#if selectedGame}
       <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
         <h3 class="text-2xl font-semibold text-primary mb-4">{selectedGame.name}</h3>
-        <p class="text-gray-700 mb-4">{selectedGame.description}</p>
+        <p class="text-text mb-4">{selectedGame.description}</p>
         <div class="relative">
           <iframe
             bind:this={iframeElement}
@@ -114,7 +114,7 @@
           ></iframe>
           <button
             on:click={toggleFullscreen}
-            class="absolute top-2 right-2 bg-primary text-white px-3 py-1 rounded-lg shadow hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary"
+            class="absolute top-2 right-2 bg-accent text-white px-3 py-1 rounded-lg shadow hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-light transition-colors duration-200"
           >
             Fullscreen
           </button>
@@ -122,16 +122,16 @@
       </div>
     {:else}
       <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
-        <p class="text-lg text-gray-700 mb-4">Welcome to 613games, your source for safe and appropriate gaming content.</p>
+        <p class="text-lg text-text mb-4">Welcome to 613games, your source for safe and appropriate gaming content.</p>
         
         <section class="mb-8">
           <h3 class="text-2xl font-semibold text-primary mb-4">About Us</h3>
-          <p class="text-gray-700">We provide a curated selection of pre-approved games that are embedded within our application. Our goal is to offer a safe and appropriate gaming environment for our community.</p>
+          <p class="text-text">We provide a curated selection of pre-approved games that are embedded within our application. Our goal is to offer a safe and appropriate gaming environment for our community.</p>
         </section>
 
         <section>
           <h3 class="text-2xl font-semibold text-primary mb-4">Our Features</h3>
-          <ul class="list-disc list-inside text-gray-700">
+          <ul class="list-disc list-inside text-text">
             <li>Carefully selected and vetted games</li>
             <li>Safe and appropriate content</li>
             <li>Easy-to-use interface</li>
