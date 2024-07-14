@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { route, navigate } from './router.js';
+  import About from './About.svelte';
 
   let title = '613games';
   let games = [];
@@ -10,6 +11,7 @@
   let isMenuOpen = true;
   let touchStartX = 0;
   let touchEndX = 0;
+  let showAbout = false;
 
   function handleTouchStart(event) {
     touchStartX = event.touches[0].clientX;
@@ -32,10 +34,15 @@
     games = await response.json();
 
     route.subscribe(value => {
-      if (value) {
+      if (value === 'about') {
+        showAbout = true;
+        selectedGame = null;
+      } else if (value) {
         selectedGame = games.find(game => game.id === value);
+        showAbout = false;
       } else {
         selectedGame = null;
+        showAbout = false;
       }
     });
   });
@@ -60,6 +67,11 @@
   function goToHome() {
     navigate('');
     selectedGame = null;
+    showAbout = false;
+  }
+
+  function goToAbout() {
+    navigate('about');
   }
 
   $: filteredGames = games
@@ -126,7 +138,14 @@
       {/each}
     </ul>
     <div class="mt-auto pt-4 border-t border-background">
-      <p class="text-sm text-text-light">&copy; {new Date().getFullYear()} 613games</p>
+      <button
+        on:click={goToAbout}
+        class="w-full text-left p-3 rounded-lg transition-colors duration-200 ease-in-out hover:bg-background-light focus:outline-none focus:ring-2 focus:ring-primary-light"
+      >
+        <span class="mr-3 text-xl">ℹ️</span>
+        <span class="font-medium">About</span>
+      </button>
+      <p class="text-sm text-text-light mt-4">&copy; {new Date().getFullYear()} 613games</p>
     </div>
   </div>
 
@@ -139,7 +158,9 @@
       <h2 class="text-xl md:text-2xl text-secondary font-heading">Vetted Kosher Games</h2>
     </header>
 
-    {#if selectedGame}
+    {#if showAbout}
+      <About />
+    {:else if selectedGame}
       <div class="bg-white shadow-lg rounded-lg p-4 md:p-8 mb-8">
         <h3 class="text-xl md:text-2xl font-semibold text-primary mb-4 font-heading">{selectedGame.name}</h3>
         <p class="text-text mb-4">{selectedGame.description}</p>
