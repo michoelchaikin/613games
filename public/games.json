@@ -19,5 +19,12 @@
     "description": "Experience a virtual Shabbat",
     "embedUrl": "https://example.com/embed/shabbat-simulator",
     "icon": "🕯️"
+  },
+  {
+    "id": "game4",
+    "name": "Bubble Pop Classic",
+    "description": "Bubble Pop Classic is a fascinating bubble shooter game with a stage-based style, each with its challenge!",
+    "embedUrl": "https://www.crazygames.com/embed/bubble-pop-classic",
+    "icon": "🫧"
   }
 ]

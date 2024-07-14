@@ -55,6 +55,9 @@
           title={selectedGame.name}
           src={selectedGame.embedUrl}
           class="w-full h-96 border-none"
+          style="width: 100%; height: 100%;"
+          frameborder="0"
+          allow="gamepad *;"
           allowfullscreen
         ></iframe>
       </div>
