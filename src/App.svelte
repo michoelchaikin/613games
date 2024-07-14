@@ -50,12 +50,12 @@
   <!-- Toggle Menu Button -->
   <button
     on:click={() => isMenuOpen = !isMenuOpen}
-    class="fixed top-4 left-4 z-20 bg-primary text-white p-2 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary"
+    class="fixed top-4 left-4 z-20 bg-primary text-white p-2 w-10 h-10 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary flex items-center justify-center"
   >
     {#if isMenuOpen}
-      &#x2715; <!-- X symbol -->
+      <span class="text-xl">&#x2715;</span> <!-- X symbol -->
     {:else}
-      &#9776; <!-- Hamburger menu symbol -->
+      <span class="text-xl">&#9776;</span> <!-- Hamburger menu symbol -->
     {/if}
   </button>
 
