@@ -55,7 +55,10 @@
   <div class="flex justify-between items-center mb-4">
     <h2 class="text-2xl font-bold text-primary">Games</h2>
     <button
-      on:click={() => isMenuOpen = false}
+      on:click={() => {
+        isMenuOpen = false;
+        console.log('Menu closed, isMenuOpen:', isMenuOpen);
+      }}
       class="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary rounded-full p-1"
     >
       <span class="text-lg">&#x2715;</span> <!-- X symbol -->
