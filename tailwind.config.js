@@ -2,6 +2,10 @@ module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Open Sans', 'sans-serif'],
+        heading: ['Poppins', 'sans-serif'],
+      },
       colors: {
         primary: {
           light: '#6366F1',

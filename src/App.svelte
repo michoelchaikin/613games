@@ -44,7 +44,11 @@
     .sort((a, b) => a.name.localeCompare(b.name));
 </script>
 
-<main class="bg-background min-h-screen flex">
+<svelte:head>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+</svelte:head>
+
+<main class="bg-background min-h-screen flex font-sans">
   <div class="absolute top-2 right-2 text-sm font-bold text-primary text-right pr-2">בס"ד</div>
   
   <!-- Toggle Menu Button -->
@@ -93,13 +97,13 @@
   <!-- Main Content -->
   <div class="flex-grow p-8 transition-all duration-300 ease-in-out" class:ml-64={isMenuOpen} class:ml-0={!isMenuOpen}>
     <header class="text-center mb-12">
-      <h1 class="text-5xl font-bold text-primary mb-2">{title}</h1>
-      <h2 class="text-2xl text-secondary">Vetted Kosher Games</h2>
+      <h1 class="text-5xl font-bold text-primary mb-2 font-heading">{title}</h1>
+      <h2 class="text-2xl text-secondary font-heading">Vetted Kosher Games</h2>
     </header>
 
     {#if selectedGame}
       <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
-        <h3 class="text-2xl font-semibold text-primary mb-4">{selectedGame.name}</h3>
+        <h3 class="text-2xl font-semibold text-primary mb-4 font-heading">{selectedGame.name}</h3>
         <p class="text-text mb-4">{selectedGame.description}</p>
         <div class="relative">
           <iframe
@@ -125,12 +129,12 @@
         <p class="text-lg text-text mb-4">Welcome to 613games, your source for safe and appropriate gaming content.</p>
         
         <section class="mb-8">
-          <h3 class="text-2xl font-semibold text-primary mb-4">About Us</h3>
+          <h3 class="text-2xl font-semibold text-primary mb-4 font-heading">About Us</h3>
           <p class="text-text">We provide a curated selection of pre-approved games that are embedded within our application. Our goal is to offer a safe and appropriate gaming environment for our community.</p>
         </section>
 
         <section>
-          <h3 class="text-2xl font-semibold text-primary mb-4">Our Features</h3>
+          <h3 class="text-2xl font-semibold text-primary mb-4 font-heading">Our Features</h3>
           <ul class="list-disc list-inside text-text">
             <li>Carefully selected and vetted games</li>
             <li>Safe and appropriate content</li>
