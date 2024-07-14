@@ -51,6 +51,16 @@
 <main class="bg-background min-h-screen flex font-sans">
   <div class="absolute top-2 right-2 text-sm font-bold text-primary text-right pr-2">בס"ד</div>
   
+  <!-- Hamburger Menu Button (visible when menu is closed) -->
+  {#if !isMenuOpen}
+    <button
+      on:click={() => isMenuOpen = true}
+      class="fixed top-4 left-4 z-20 bg-primary text-white p-2 w-10 h-10 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-light flex items-center justify-center hover:bg-primary-dark transition-colors duration-200"
+    >
+      <span class="text-xl">&#9776;</span> <!-- Hamburger menu symbol -->
+    </button>
+  {/if}
+  
   <!-- Game Menu -->
   <div class="w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto transition-transform duration-300 ease-in-out z-10"
        class:translate-x-0={isMenuOpen}
