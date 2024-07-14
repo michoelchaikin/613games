@@ -2,62 +2,34 @@
   let title = '613games';
 </script>
 
-<main>
-  <h1>{title}</h1>
-  <h2>Vetted Kosher Games</h2>
-  <p>Welcome to 613games, your source for safe and appropriate gaming content.</p>
-  <section>
-    <h3>About Us</h3>
-    <p>We provide a curated selection of pre-approved games that are embedded within our application. Our goal is to offer a safe and appropriate gaming environment for our community.</p>
-  </section>
-  <section>
-    <h3>Our Features</h3>
-    <ul>
-      <li>Carefully selected and vetted games</li>
-      <li>Safe and appropriate content</li>
-      <li>Easy-to-use interface</li>
-      <li>Embedded game experience</li>
-    </ul>
-  </section>
+<main class="bg-gray-100 min-h-screen">
+  <div class="container mx-auto px-4 py-8">
+    <header class="text-center mb-12">
+      <h1 class="text-5xl font-bold text-primary mb-2">{title}</h1>
+      <h2 class="text-2xl text-secondary">Vetted Kosher Games</h2>
+    </header>
+
+    <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
+      <p class="text-lg text-gray-700 mb-4">Welcome to 613games, your source for safe and appropriate gaming content.</p>
+      
+      <section class="mb-8">
+        <h3 class="text-2xl font-semibold text-primary mb-4">About Us</h3>
+        <p class="text-gray-700">We provide a curated selection of pre-approved games that are embedded within our application. Our goal is to offer a safe and appropriate gaming environment for our community.</p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold text-primary mb-4">Our Features</h3>
+        <ul class="list-disc list-inside text-gray-700">
+          <li>Carefully selected and vetted games</li>
+          <li>Safe and appropriate content</li>
+          <li>Easy-to-use interface</li>
+          <li>Embedded game experience</li>
+        </ul>
+      </section>
+    </div>
+
+    <footer class="text-center text-gray-500">
+      <p>&copy; 2023 613games. All rights reserved.</p>
+    </footer>
+  </div>
 </main>
-
-<style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 3em;
-    font-weight: 100;
-  }
-
-  h2 {
-    color: #4a4a4a;
-    font-size: 1.5em;
-  }
-
-  section {
-    margin-top: 2em;
-    text-align: left;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    margin-bottom: 0.5em;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: 800px;
-    }
-  }
-</style>
