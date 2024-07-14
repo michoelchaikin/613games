@@ -14,29 +14,34 @@
   }
 </script>
 
-<main class="bg-gray-100 min-h-screen relative flex">
+<main class="bg-gray-100 min-h-screen flex">
   <div class="absolute top-2 right-2 text-sm font-bold text-primary text-right w-full pr-2">בס"ד</div>
   
   <!-- Game Menu -->
-  <div class="w-1/4 bg-white shadow-lg p-4">
-    <h2 class="text-2xl font-bold text-primary mb-4">Games</h2>
-    <ul>
+  <div class="w-64 bg-white shadow-lg p-4 flex flex-col">
+    <h2 class="text-2xl font-bold text-primary mb-6">Games</h2>
+    <ul class="space-y-2 flex-grow">
       {#each games as game}
-        <li class="mb-2">
+        <li>
           <button
-            class="w-full text-left p-2 rounded hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary"
+            class="w-full text-left p-3 rounded-lg transition-colors duration-200 ease-in-out
+                   {selectedGame === game ? 'bg-primary text-white' : 'hover:bg-gray-100'}
+                   focus:outline-none focus:ring-2 focus:ring-primary"
             on:click={() => selectGame(game)}
           >
-            <span class="mr-2">{game.icon}</span>
-            {game.name}
+            <span class="mr-3 text-xl">{game.icon}</span>
+            <span class="font-medium">{game.name}</span>
           </button>
         </li>
       {/each}
     </ul>
+    <div class="mt-auto pt-4 border-t border-gray-200">
+      <p class="text-sm text-gray-500">&copy; {new Date().getFullYear()} 613games</p>
+    </div>
   </div>
 
   <!-- Main Content -->
-  <div class="w-3/4 p-8">
+  <div class="flex-grow p-8">
     <header class="text-center mb-12">
       <h1 class="text-5xl font-bold text-primary mb-2">{title}</h1>
       <h2 class="text-2xl text-secondary">Vetted Kosher Games</h2>
@@ -74,8 +79,5 @@
       </div>
     {/if}
 
-    <footer class="text-center text-gray-500">
-      <p>&copy; {new Date().getFullYear()} 613games. All rights reserved.</p>
-    </footer>
   </div>
 </main>
