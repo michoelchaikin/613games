@@ -26,5 +26,12 @@
     "description": "An addictive endless runner game set in space where you navigate through a series of challenging tunnels.",
     "embedUrl": "https://www.crazygames.com/embed/run-3",
     "icon": "🏃"
+  },
+  {
+    "id": "game8",
+    "name": "Slice Master",
+    "description": "A fun and challenging fruit-slicing game where you swipe to slice various fruits while avoiding bombs.",
+    "embedUrl": "https://www.crazygames.com/embed/slice-master",
+    "icon": "🍉"
   }
 ]
