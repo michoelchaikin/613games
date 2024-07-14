@@ -87,7 +87,7 @@
     type="text"
     placeholder="Search games..."
     bind:value={searchTerm}
-    class="w-full p-2 mb-4 border border-primary bg-background-light text-primary placeholder-primary placeholder-opacity-70 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+    class="w-full p-2 mb-4 border border-primary bg-white text-primary placeholder-primary placeholder-opacity-70 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
   />
   <ul class="space-y-2 flex-grow overflow-y-auto games-list px-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
     {#each filteredGames as game}
