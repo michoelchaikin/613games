@@ -66,6 +66,9 @@
     .menu-slide {
       transform: translateX(0);
     }
+    .menu-slide:not(.menu-open) {
+      transform: translateX(-100%);
+    }
   }
 </style>
   <div class="flex justify-between items-center mb-4">

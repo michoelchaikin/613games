@@ -45,11 +45,11 @@
 <main class="bg-background min-h-screen flex flex-col md:flex-row font-body">
   <div class="absolute top-2 right-2 text-sm font-bold text-primary text-right pr-2">בס"ד</div>
   
-  <!-- Hamburger Menu Button (visible when menu is closed on mobile) -->
+  <!-- Hamburger Menu Button (visible when menu is closed) -->
   {#if !isMenuOpen}
     <button
       on:click={() => isMenuOpen = true}
-      class="fixed top-4 left-4 z-20 bg-primary text-white p-2 w-10 h-10 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-light flex items-center justify-center hover:bg-primary-dark transition-colors duration-200 md:hidden"
+      class="fixed top-4 left-4 z-20 bg-primary text-white p-2 w-10 h-10 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-light flex items-center justify-center hover:bg-primary-dark transition-colors duration-200"
     >
       <span class="text-xl">&#9776;</span> <!-- Hamburger menu symbol -->
     </button>
@@ -58,7 +58,7 @@
   <GameMenu {games} {selectedGame} bind:isMenuOpen bind:searchTerm />
 
   <!-- Main Content -->
-  <div class="flex-grow p-4 md:p-8 transition-all duration-300 ease-in-out md:ml-64">
+  <div class="flex-grow p-4 md:p-8 transition-all duration-300 ease-in-out" class:md:ml-64={isMenuOpen}>
     <header class="text-center mb-8 md:mb-12">
       <button on:click={goToHome} class="focus:outline-none focus:ring-2 focus:ring-primary-light rounded-lg">
         <h1 class="text-4xl md:text-5xl font-bold text-primary mb-2 font-heading hover:text-primary-dark transition-colors duration-200">{title}</h1>
