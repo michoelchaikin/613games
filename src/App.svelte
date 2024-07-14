@@ -122,7 +122,7 @@
       bind:value={searchTerm}
       class="w-full p-2 mb-4 border border-background rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light"
     />
-    <ul class="space-y-2 flex-grow overflow-y-auto games-list">
+    <ul class="space-y-2 flex-grow overflow-y-auto games-list [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
       {#each filteredGames as game}
         <li>
           <button
