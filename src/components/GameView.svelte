@@ -28,7 +28,7 @@
     ></iframe>
     <button
       on:click={toggleFullscreen}
-      class="absolute top-2 right-2 bg-accent text-white px-2 py-1 md:px-3 md:py-1 text-sm md:text-base rounded-lg shadow hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-light transition-colors duration-200"
+      class="absolute top-2 right-2 bg-accent text-white px-2 py-1 text-sm rounded-lg shadow hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-light transition-colors duration-200"
     >
       Fullscreen
     </button>
