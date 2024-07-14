@@ -4,11 +4,13 @@
 
 @layer utilities {
   .menu-slide {
-    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
     transform: translateX(-100%);
+    opacity: 0;
   }
 
   .menu-open {
     transform: translateX(0);
+    opacity: 1;
   }
 }
