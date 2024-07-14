@@ -4,6 +4,7 @@
   let games = [];
   let selectedGame = null;
   let searchTerm = '';
+  let iframeElement;
 
   onMount(async () => {
     const response = await fetch('games.json');
@@ -12,6 +13,16 @@
 
   function selectGame(game) {
     selectedGame = game;
+  }
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      iframeElement.requestFullscreen().catch(err => {
+        alert(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
   }
 
   $: filteredGames = games
@@ -65,15 +76,24 @@
       <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
         <h3 class="text-2xl font-semibold text-primary mb-4">{selectedGame.name}</h3>
         <p class="text-gray-700 mb-4">{selectedGame.description}</p>
-        <iframe
-          title={selectedGame.name}
-          src={selectedGame.embedUrl}
-          class="w-full h-[600px] border-none"
-          style="width: 100%; height: 600px;"
-          frameborder="0"
-          allow="gamepad *;"
-          allowfullscreen
-        ></iframe>
+        <div class="relative">
+          <iframe
+            bind:this={iframeElement}
+            title={selectedGame.name}
+            src={selectedGame.embedUrl}
+            class="w-full h-[600px] border-none"
+            style="width: 100%; height: 600px;"
+            frameborder="0"
+            allow="gamepad *;"
+            allowfullscreen
+          ></iframe>
+          <button
+            on:click={toggleFullscreen}
+            class="absolute top-2 right-2 bg-primary text-white px-3 py-1 rounded-lg shadow hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            Fullscreen
+          </button>
+        </div>
       </div>
     {:else}
       <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
