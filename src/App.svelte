@@ -7,6 +7,7 @@
   let selectedGame = null;
   let searchTerm = '';
   let iframeElement;
+  let isMenuOpen = true;
 
   onMount(async () => {
     const response = await fetch('games.json');
@@ -46,8 +47,22 @@
 <main class="bg-gray-100 min-h-screen flex">
   <div class="absolute top-2 right-2 text-sm font-bold text-primary text-right pr-2">בס"ד</div>
   
+  <!-- Toggle Menu Button -->
+  <button
+    on:click={() => isMenuOpen = !isMenuOpen}
+    class="fixed top-4 left-4 z-20 bg-primary text-white p-2 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary"
+  >
+    {#if isMenuOpen}
+      &#x2715; <!-- X symbol -->
+    {:else}
+      &#9776; <!-- Hamburger menu symbol -->
+    {/if}
+  </button>
+
   <!-- Game Menu -->
-  <div class="w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto">
+  <div class="w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto transition-transform duration-300 ease-in-out z-10"
+       class:translate-x-0={isMenuOpen}
+       class:-translate-x-full={!isMenuOpen}>
     <h2 class="text-2xl font-bold text-primary mb-4">Games</h2>
     <input
       type="text"
@@ -76,7 +91,7 @@
   </div>
 
   <!-- Main Content -->
-  <div class="flex-grow p-8 ml-64">
+  <div class="flex-grow p-8 transition-all duration-300 ease-in-out" class:ml-64={isMenuOpen} class:ml-0={!isMenuOpen}>
     <header class="text-center mb-12">
       <h1 class="text-5xl font-bold text-primary mb-2">{title}</h1>
       <h2 class="text-2xl text-secondary">Vetted Kosher Games</h2>
