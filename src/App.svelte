@@ -3,6 +3,7 @@
   let title = '613games';
   let games = [];
   let selectedGame = null;
+  let searchTerm = '';
 
   onMount(async () => {
     const response = await fetch('games.json');
@@ -12,6 +13,11 @@
   function selectGame(game) {
     selectedGame = game;
   }
+
+  $: filteredGames = games.filter(game =>
+    game.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    game.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 </script>
 
 <main class="bg-gray-100 min-h-screen flex">
@@ -19,9 +25,15 @@
   
   <!-- Game Menu -->
   <div class="w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 overflow-y-auto">
-    <h2 class="text-2xl font-bold text-primary mb-6">Games</h2>
+    <h2 class="text-2xl font-bold text-primary mb-4">Games</h2>
+    <input
+      type="text"
+      placeholder="Search games..."
+      bind:value={searchTerm}
+      class="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+    />
     <ul class="space-y-2 flex-grow">
-      {#each games as game}
+      {#each filteredGames as game}
         <li>
           <button
             class="w-full text-left p-3 rounded-lg transition-colors duration-200 ease-in-out
