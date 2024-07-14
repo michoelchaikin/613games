@@ -1,5 +1,7 @@
 <script>
   import { onMount } from 'svelte';
+  import { route, navigate } from './router.js';
+
   let title = '613games';
   let games = [];
   let selectedGame = null;
@@ -9,10 +11,18 @@
   onMount(async () => {
     const response = await fetch('games.json');
     games = await response.json();
+
+    route.subscribe(value => {
+      if (value) {
+        selectedGame = games.find(game => game.id === value);
+      } else {
+        selectedGame = null;
+      }
+    });
   });
 
   function selectGame(game) {
-    selectedGame = game;
+    navigate(game.id);
   }
 
   function toggleFullscreen() {
