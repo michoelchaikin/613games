@@ -105,25 +105,24 @@
        class:md:menu-open={true}
        on:touchstart={handleTouchStart}
        on:touchend={handleTouchEnd}>
-    <div class="flex flex-col h-full">
-      <div class="flex justify-between items-center mb-4">
-        <h2 class="text-2xl font-bold text-primary">Games</h2>
-        {#if isMenuOpen}
-          <button
-            on:click={() => isMenuOpen = false}
-            class="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-light rounded-full p-1"
-          >
-            <span class="text-lg">&#x2715;</span> <!-- X symbol -->
-          </button>
-        {/if}
-      </div>
-      <input
-        type="text"
-        placeholder="Search games..."
-        bind:value={searchTerm}
-        class="w-full p-2 mb-4 border border-background rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light"
-      />
-      <ul class="space-y-2 flex-grow overflow-y-auto">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold text-primary">Games</h2>
+      {#if isMenuOpen}
+        <button
+          on:click={() => isMenuOpen = false}
+          class="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-light rounded-full p-1"
+        >
+          <span class="text-lg">&#x2715;</span> <!-- X symbol -->
+        </button>
+      {/if}
+    </div>
+    <input
+      type="text"
+      placeholder="Search games..."
+      bind:value={searchTerm}
+      class="w-full p-2 mb-4 border border-background rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light"
+    />
+    <ul class="space-y-2 flex-grow overflow-y-auto">
       {#each filteredGames as game}
         <li>
           <button
