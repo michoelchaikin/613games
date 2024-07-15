@@ -1,12 +1,5 @@
 [
   {
-    "id": "helix-jump",
-    "name": "Helix Jump",
-    "description": "A casual game where you guide a bouncing ball down through rotating platforms, avoiding obstacles.",
-    "embedUrl": "https://www.crazygames.com/embed/helix-jump",
-    "icon": "🌀"
-  },
-  {
     "id": "cut-the-rope",
     "name": "Cut the Rope",
     "description": "A physics-based puzzle game where you cut ropes to feed candy to a cute monster named Om Nom.",
