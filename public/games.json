@@ -7,6 +7,13 @@
     "icon": "🧩"
   },
   {
+    "id": "space-waves",
+    "name": "Space Waves",
+    "description": "An arcade game where you control an arrow to avoid obstacles through 33 levels of varying difficulty.",
+    "embedUrl": "https://www.crazygames.com/embed/space-waves",
+    "icon": "🚀"
+  },
+  {
     "id": "hide-n-seek",
     "name": "Hide N Seek",
     "description": "A fun 3D simulation game where you play hide and seek with kids. Search the house to find them!",
