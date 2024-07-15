@@ -1,5 +1,12 @@
 [
   {
+    "id": "cut-the-rope",
+    "name": "Cut the Rope",
+    "description": "A physics-based puzzle game where you cut ropes to feed candy to a cute monster named Om Nom.",
+    "embedUrl": "https://www.crazygames.com/embed/cut-the-rope-ebx",
+    "icon": "🍬"
+  },
+  {
     "id": "2048",
     "name": "2048",
     "description": "A single-player sliding block puzzle game. Join the numbers and get to the 2048 tile!",
