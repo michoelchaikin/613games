@@ -111,13 +111,10 @@
         </button>
         <button
           on:click={() => toggleFavorite(game.id)}
-          class="ml-2 p-1 text-primary opacity-30 hover:opacity-100 focus:outline-none transition-opacity duration-200 ease-in-out"
+          class="ml-2 p-1 text-primary focus:outline-none transition-opacity duration-200 ease-in-out"
+          title={favorites.includes(game.id) ? "Unpin game" : "Pin game"}
         >
-          {#if favorites.includes(game.id)}
-            <span class="text-lg">📌</span>
-          {:else}
-            <span class="text-lg">📍</span>
-          {/if}
+          <span class="text-lg {favorites.includes(game.id) ? 'opacity-100' : 'opacity-30 hover:opacity-60'}">📌</span>
         </button>
       </li>
     {/each}
