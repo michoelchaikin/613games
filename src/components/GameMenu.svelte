@@ -122,9 +122,9 @@
           </li>
         {/each}
       </ul>
-    {/if}
 
-    <h3 class="text-lg font-semibold text-primary mb-2">All Games</h3>
+      <h3 class="text-lg font-semibold text-primary mb-2">All Games</h3>
+    {/if}
     <ul class="space-y-2">
       {#each filteredGames.filter(game => !favorites.includes(game.id)) as game}
         <li class="flex items-center group">
