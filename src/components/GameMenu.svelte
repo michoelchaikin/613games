@@ -158,3 +158,4 @@
     <p class="text-sm text-primary text-opacity-80 mt-4">&copy; {new Date().getFullYear()} 613games</p>
   </div>
 </div>
+</div>
