@@ -105,10 +105,10 @@
           <li class="flex items-center group">
             <button
               on:click={() => toggleFavorite(game.id)}
-              class="p-1 text-primary focus:outline-none transition-opacity duration-200 ease-in-out mr-2"
+              class="p-0.5 text-primary focus:outline-none transition-opacity duration-200 ease-in-out mr-1"
               title="Unpin game"
             >
-              <span class="text-lg opacity-100">📌</span>
+              <span class="text-sm opacity-100">📌</span>
             </button>
             <button
               class="flex-grow text-left px-3 py-2 rounded-lg transition-colors duration-200 ease-in-out
@@ -130,10 +130,10 @@
         <li class="flex items-center group">
           <button
             on:click={() => toggleFavorite(game.id)}
-            class="p-1 text-primary focus:outline-none transition-opacity duration-200 ease-in-out"
+            class="p-0.5 text-primary focus:outline-none transition-opacity duration-200 ease-in-out"
             title={favorites.includes(game.id) ? "Unpin game" : "Pin game"}
           >
-            <span class="text-lg {favorites.includes(game.id) ? 'opacity-100' : 'opacity-0 group-hover:opacity-60 w-0 group-hover:w-auto overflow-hidden transition-all duration-200'}">📌</span>
+            <span class="text-sm {favorites.includes(game.id) ? 'opacity-100' : 'opacity-0 group-hover:opacity-60 w-0 group-hover:w-auto overflow-hidden transition-all duration-200'}">📌</span>
           </button>
           <button
             class="flex-grow text-left px-3 py-2 rounded-lg transition-colors duration-200 ease-in-out
