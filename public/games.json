@@ -4,7 +4,8 @@
     "name": "Minecraft Classic",
     "description": "The original creative building block game, now playable in your browser.",
     "embedUrl": "https://classic.minecraft.net/",
-    "icon": "🧱"
+    "icon": "🧱",
+    "noEmbed": true
   },
   {
     "id": "cut-the-rope",
