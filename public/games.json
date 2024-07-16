@@ -105,5 +105,19 @@
     "description": "A high-speed racing game with multiple modes, realistic physics, and customizable cars.",
     "embedUrl": "https://www.crazygames.com/embed/racing-limits",
     "icon": "🏎️"
+  },
+  {
+    "id": "stunt-rider",
+    "name": "Stunt Rider",
+    "description": "A challenging motorcycle stunt game where you perform tricks and jumps across various levels.",
+    "embedUrl": "https://www.crazygames.com/embed/stunt-rider",
+    "icon": "🏍️"
+  },
+  {
+    "id": "crazy-motorcycle",
+    "name": "Crazy Motorcycle",
+    "description": "A fast-paced motorcycle racing game with multiple tracks and challenging obstacles.",
+    "embedUrl": "https://www.crazygames.com/embed/crazy-motorcycle",
+    "icon": "🏍️"
   }
 ]
