@@ -12,10 +12,17 @@
   let searchTerm = '';
   let isMenuOpen = true;
   let showAbout = false;
+  let favorites = [];
 
   onMount(async () => {
     const response = await fetch('games.json');
     games = await response.json();
+
+    // Load favorites from localStorage
+    const storedFavorites = localStorage.getItem('favorites');
+    if (storedFavorites) {
+      favorites = JSON.parse(storedFavorites);
+    }
 
     route.subscribe(value => {
       if (value === 'about') {
@@ -30,6 +37,15 @@
       }
     });
   });
+
+  function toggleFavorite(gameId) {
+    if (favorites.includes(gameId)) {
+      favorites = favorites.filter(id => id !== gameId);
+    } else {
+      favorites = [...favorites, gameId];
+    }
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
 
   function goToHome() {
     navigate('');
@@ -55,7 +71,7 @@
     </button>
   {/if}
   
-  <GameMenu {games} {selectedGame} bind:isMenuOpen bind:searchTerm />
+  <GameMenu {games} {selectedGame} bind:isMenuOpen bind:searchTerm {favorites} {toggleFavorite} />
 
   <!-- Main Content -->
   <div class="flex-grow p-4 md:p-8 transition-all duration-300 ease-in-out" class:md:ml-64={isMenuOpen}>
