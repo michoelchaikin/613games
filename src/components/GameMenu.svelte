@@ -97,9 +97,38 @@
     bind:value={searchTerm}
     class="w-full p-2 mb-4 border border-primary bg-white text-primary placeholder-primary placeholder-opacity-70 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
   />
-  <ul class="space-y-2 flex-grow overflow-y-auto games-list px-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-    {#each filteredGames as game}
-      <li class="flex items-center group">
+  <div class="flex-grow overflow-y-auto games-list px-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+    {#if filteredGames.some(game => favorites.includes(game.id))}
+      <h3 class="text-lg font-semibold text-primary mb-2">Pinned Games</h3>
+      <ul class="space-y-2 mb-4">
+        {#each filteredGames.filter(game => favorites.includes(game.id)) as game}
+          <li class="flex items-center group">
+            <button
+              on:click={() => toggleFavorite(game.id)}
+              class="p-1 text-primary focus:outline-none transition-opacity duration-200 ease-in-out mr-2"
+              title="Unpin game"
+            >
+              <span class="text-lg opacity-100">📌</span>
+            </button>
+            <button
+              class="flex-grow text-left px-3 py-2 rounded-lg transition-colors duration-200 ease-in-out
+                     {selectedGame === game ? 'bg-primary text-white' : 'text-primary hover:bg-background-light'}
+                     focus:outline-none focus:ring-2 focus:ring-primary"
+              on:click={() => selectGame(game)}
+            >
+              <span class="mr-3 text-xl">{game.icon}</span>
+              <span class="font-medium">{game.name}</span>
+            </button>
+          </li>
+        {/each}
+      </ul>
+    {/if}
+
+    <h3 class="text-lg font-semibold text-primary mb-2">All Games</h3>
+    <ul class="space-y-2">
+      {#each filteredGames as game}
+        {#if !favorites.includes(game.id)}
+          <li class="flex items-center group">
         <button
           on:click={() => toggleFavorite(game.id)}
           class="p-1 text-primary focus:outline-none transition-opacity duration-200 ease-in-out mr-2"
