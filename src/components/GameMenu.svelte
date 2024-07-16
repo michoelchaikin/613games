@@ -99,7 +99,14 @@
   />
   <ul class="space-y-2 flex-grow overflow-y-auto games-list px-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
     {#each filteredGames as game}
-      <li class="flex items-center">
+      <li class="flex items-center group">
+        <button
+          on:click={() => toggleFavorite(game.id)}
+          class="p-1 text-primary focus:outline-none transition-opacity duration-200 ease-in-out mr-2"
+          title={favorites.includes(game.id) ? "Unpin game" : "Pin game"}
+        >
+          <span class="text-lg {favorites.includes(game.id) ? 'opacity-100' : 'opacity-0 group-hover:opacity-60'}">📌</span>
+        </button>
         <button
           class="flex-grow text-left px-3 py-2 rounded-lg transition-colors duration-200 ease-in-out
                  {selectedGame === game ? 'bg-primary text-white' : 'text-primary hover:bg-background-light'}
@@ -108,13 +115,6 @@
         >
           <span class="mr-3 text-xl">{game.icon}</span>
           <span class="font-medium">{game.name}</span>
-        </button>
-        <button
-          on:click={() => toggleFavorite(game.id)}
-          class="ml-2 p-1 text-primary focus:outline-none transition-opacity duration-200 ease-in-out"
-          title={favorites.includes(game.id) ? "Unpin game" : "Pin game"}
-        >
-          <span class="text-lg {favorites.includes(game.id) ? 'opacity-100' : 'opacity-30 hover:opacity-60'}">📌</span>
         </button>
       </li>
     {/each}
