@@ -72,7 +72,7 @@
   }
 </style>
   <div class="flex justify-between items-center mb-4">
-    <h2 class="text-2xl font-bold text-primary">Games</h2>
+    <h2 class="text-2xl font-bold text-primary">🎮 Games</h2>
     <button
       on:click={() => {
         isMenuOpen = false;
