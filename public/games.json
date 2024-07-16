@@ -1,5 +1,12 @@
 [
   {
+    "id": "minecraft-classic",
+    "name": "Minecraft Classic",
+    "description": "The original creative building block game, now playable in your browser.",
+    "embedUrl": "https://classic.minecraft.net/",
+    "icon": "🧱"
+  },
+  {
     "id": "cut-the-rope",
     "name": "Cut the Rope",
     "description": "A physics-based puzzle game where you cut ropes to feed candy to a cute monster named Om Nom.",
