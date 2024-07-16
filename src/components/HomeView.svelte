@@ -13,10 +13,11 @@
       <li>Free from violence, inappropriate themes, and non-Jewish content</li>
       <li>Carefully checked to exclude killing, fighting, and other unsuitable elements</li>
       <li>Aligned with Jewish values and teachings</li>
-      <li>Ad-free and tracker-free for a seamless gaming experience</li>
+      <li>Our website is ad-free and tracker-free for a seamless experience</li>
       <li>Respectful of your privacy - we don't collect any personal information or require sign-ups</li>
     </ul>
-    <p class="text-text">Every game on our platform has been thoroughly vetted to ensure it meets our strict standards for content and user safety.</p>
+    <p class="text-text mb-4">Every game on our platform has been thoroughly vetted to ensure it meets our strict standards for content and user safety.</p>
+    <p class="text-text">Please note: While our website doesn't serve any ads, some individual games may contain advertisements. We always strive to select games with minimal or no ads to ensure the best possible experience.</p>
   </section>
 
   <section>
