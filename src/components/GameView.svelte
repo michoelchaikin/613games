@@ -18,7 +18,8 @@
   <p class="text-text mb-4">{selectedGame.description}</p>
   <div class="relative">
     {#if selectedGame.noEmbed}
-      <div class="w-full h-[300px] md:h-[600px] flex items-center justify-center bg-gray-100 rounded-lg">
+      <div class="w-full flex flex-col items-center justify-center bg-gray-100 rounded-lg p-4">
+        <p class="text-text mb-4 text-center">This game will open in a new window.</p>
         <a 
           href={selectedGame.embedUrl} 
           target="_blank" 
