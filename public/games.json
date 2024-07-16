@@ -1,5 +1,12 @@
 [
   {
+    "id": "rider-io",
+    "name": "Rider.io",
+    "description": "A Tron Legacy-style racing and stunt motorcycle game where you compete against other players on mind-blowing tracks full of ramps and obstacles.",
+    "embedUrl": "https://www.miniplay.com/embed/rider-io",
+    "icon": "🏍️"
+  },
+  {
     "id": "minecraft-classic",
     "name": "Minecraft Classic",
     "description": "The original creative building block game, now playable in your browser.",
