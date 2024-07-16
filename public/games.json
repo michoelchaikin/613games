@@ -68,5 +68,12 @@
     "description": "A high-speed racing game with multiple modes, realistic physics, and customizable cars.",
     "embedUrl": "https://www.crazygames.com/embed/racing-limits",
     "icon": "🏎️"
+  },
+  {
+    "id": "stunt-rider",
+    "name": "Stunt Rider",
+    "description": "An exciting game where you play as an experienced stuntman, performing daring stunts on your motorcycle in different levels.",
+    "embedUrl": "https://www.miniplay.com/embed/stunt-rider",
+    "icon": "🏍️"
   }
 ]
