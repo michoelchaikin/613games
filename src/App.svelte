@@ -59,10 +59,10 @@
 
   <!-- Main Content -->
   <div class="flex-grow p-4 md:p-8 transition-all duration-300 ease-in-out" class:md:ml-64={isMenuOpen}>
-    <header class="mb-8 md:mb-12 flex items-center">
-      <button on:click={goToHome} class="focus:outline-none focus:ring-2 focus:ring-primary-light rounded-lg flex items-center">
-        <img src="logo.png" alt="613 Games Logo" class="h-20 md:h-24 mr-6">
-        <div class="text-left">
+    <header class="mb-8 md:mb-12 flex flex-col items-center">
+      <button on:click={goToHome} class="focus:outline-none focus:ring-2 focus:ring-primary-light rounded-lg flex flex-col items-center">
+        <img src="logo.png" alt="613 Games Logo" class="h-20 md:h-24 mb-4">
+        <div class="text-center">
           <h1 class="text-4xl md:text-5xl font-bold text-primary font-heading hover:text-primary-dark transition-colors duration-200">{title}</h1>
           <h2 class="text-xl md:text-2xl text-secondary font-heading mt-2">Vetted Kosher Games</h2>
         </div>
