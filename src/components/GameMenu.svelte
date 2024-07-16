@@ -111,12 +111,12 @@
         </button>
         <button
           on:click={() => toggleFavorite(game.id)}
-          class="ml-2 p-1 text-yellow-500 hover:text-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 rounded-full"
+          class="ml-2 p-1 text-primary opacity-30 hover:opacity-100 focus:outline-none transition-opacity duration-200 ease-in-out"
         >
           {#if favorites.includes(game.id)}
-            <span class="text-xl">★</span>
+            <span class="text-lg">📌</span>
           {:else}
-            <span class="text-xl">☆</span>
+            <span class="text-lg">📍</span>
           {/if}
         </button>
       </li>
