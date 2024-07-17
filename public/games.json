@@ -3,9 +3,10 @@
     "id": "bloxd-io",
     "name": "Bloxd.io",
     "description": "A 3D crafting sandbox with multiple game modes including building, parkour, and hide and seek.",
-    "embedUrl": "https://www.coolmathgames.com/0-bloxd-io",
+    "embedUrl": "https://www.coolmathgames.com/0-bloxd-io#immersiveModal",
     "icon": "🧱",
-    "dateAdded": "2024-07-17"
+    "dateAdded": "2024-07-17",
+    "noEmbed": true
   },
   {
     "id": "moto-x3m",
