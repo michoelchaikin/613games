@@ -88,7 +88,7 @@
     }
   </style>
 
-  <div class="bg-gray-200 text-gray-800 p-4 flex justify-between items-center">
+  <div class="bg-gray-100 text-gray-800 p-4 flex justify-between items-center border-b border-gray-200">
     <h2 class="text-2xl font-bold">🎮 Games</h2>
     <button
       on:click={() => {
