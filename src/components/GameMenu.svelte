@@ -152,7 +152,7 @@
                 </div>
                 <button
                   on:click|stopPropagation={() => toggleFavorite(game.id)}
-                  class="text-lg opacity-75 hover:opacity-100"
+                  class="text-lg opacity-100"
                   title="Unpin game"
                 >
                   📌
@@ -190,8 +190,8 @@
                     event.preventDefault();
                     toggleFavorite(game.id);
                   }}
-                  class="text-lg opacity-75 hover:opacity-100 transition-opacity duration-200"
-                  title={favorites.includes(game.id) ? "Unpin game" : "Pin game"}
+                  class="text-lg opacity-0 hover:opacity-75 transition-opacity duration-200 hidden md:inline-block"
+                  title="Pin game"
                 >
                   📌
                 </button>
