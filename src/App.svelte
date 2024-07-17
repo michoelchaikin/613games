@@ -78,9 +78,9 @@
 
   <!-- Main Content -->
   <div class="flex-grow p-4 md:p-8 transition-all duration-300 ease-in-out" class:md:ml-72={isMenuOpen} class:md:px-8={isMenuOpen}>
-    <header class="mb-8 md:mb-12 flex justify-start md:justify-center items-center pl-4 md:pl-0">
+    <header class="mb-8 md:mb-12 flex justify-center items-center">
       <button on:click={goToHome} class="focus:outline-none focus:ring-2 focus:ring-primary-light rounded-lg flex items-center">
-        <img src="logo.png" alt="613 Games Logo" class="h-20 md:h-24 mr-4">
+        <img src="logo.png" alt="613 Games Logo" class="h-20 md:h-24 mr-2 md:mr-4">
         <div class="text-center">
           <h1 class="text-4xl md:text-5xl font-bold text-primary font-heading hover:text-primary-dark transition-colors duration-200">{title}</h1>
           <h2 class="text-xl md:text-2xl text-secondary font-heading mt-1">Vetted Kosher Games</h2>
