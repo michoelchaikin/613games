@@ -10,6 +10,8 @@
 
   let touchStartX = 0;
   let touchEndX = 0;
+  let longPressTimer;
+  let longPressThreshold = 500; // milliseconds
 
   function handleTouchStart(event) {
     touchStartX = event.touches[0].clientX;
@@ -18,6 +20,7 @@
   function handleTouchEnd(event) {
     touchEndX = event.changedTouches[0].clientX;
     handleSwipe();
+    clearTimeout(longPressTimer);
   }
 
   function handleSwipe() {
@@ -46,6 +49,16 @@
     const threeAgo = new Date();
     threeAgo.setDate(threeAgo.getDate() - 3);
     return new Date(dateAdded) > threeAgo;
+  }
+
+  function handleLongPress(game) {
+    longPressTimer = setTimeout(() => {
+      toggleFavorite(game.id);
+    }, longPressThreshold);
+  }
+
+  function cancelLongPress() {
+    clearTimeout(longPressTimer);
   }
 
   $: filteredGames = games
@@ -176,6 +189,9 @@
                      {selectedGame === game ? 'bg-primary text-white' : 'text-gray-700 hover:bg-gray-200'}
                      focus:outline-none focus:ring-2 focus:ring-primary"
               on:click={() => selectGame(game)}
+              on:touchstart={() => handleLongPress(game)}
+              on:touchend={cancelLongPress}
+              on:touchmove={cancelLongPress}
             >
               <div class="flex items-center">
                 <span class="w-8 text-xl flex-shrink-0 text-center mr-2">{game.icon}</span>
