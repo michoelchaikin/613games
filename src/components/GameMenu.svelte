@@ -88,13 +88,13 @@
     }
   </style>
 
-  <div class="bg-primary text-white p-4 flex justify-between items-center">
+  <div class="bg-gray-800 text-white p-4 flex justify-between items-center">
     <h2 class="text-2xl font-bold">🎮 Games</h2>
     <button
       on:click={() => {
         isMenuOpen = false;
       }}
-      class="text-white hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-white rounded-full p-1"
+      class="text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-full p-1"
     >
       <span class="text-lg">&#x2715;</span>
     </button>
