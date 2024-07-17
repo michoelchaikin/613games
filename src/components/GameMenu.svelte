@@ -86,6 +86,31 @@
         transform: translateX(-100%);
       }
     }
+
+    /* Custom scrollbar styles */
+    .overflow-y-auto {
+      scrollbar-width: thin;
+      scrollbar-color: #4a5568 #e2e8f0;
+    }
+
+    .overflow-y-auto::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .overflow-y-auto::-webkit-scrollbar-track {
+      background: #e2e8f0;
+      border-radius: 4px;
+    }
+
+    .overflow-y-auto::-webkit-scrollbar-thumb {
+      background-color: #4a5568;
+      border-radius: 4px;
+      border: 2px solid #e2e8f0;
+    }
+
+    .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+      background-color: #2d3748;
+    }
   </style>
 
   <div class="bg-gray-100 text-gray-800 p-4 flex justify-between items-center border-b border-gray-200">
