@@ -10,7 +10,7 @@
   let games = [];
   let selectedGame = null;
   let searchTerm = '';
-  let isMenuOpen = true;
+  let isMenuOpen = false;
   let showAbout = false;
   let favorites = [];
 
@@ -23,6 +23,9 @@
     if (storedFavorites) {
       favorites = JSON.parse(storedFavorites);
     }
+
+    // Set isMenuOpen based on screen width
+    isMenuOpen = window.innerWidth >= 768;
 
     route.subscribe(value => {
       if (value === 'about') {
