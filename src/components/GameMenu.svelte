@@ -41,6 +41,13 @@
     }
   }
 
+  function isNew(dateAdded) {
+    if (!dateAdded) return false;
+    const threeAgo = new Date();
+    threeAgo.setDate(threeAgo.getDate() - 3);
+    return new Date(dateAdded) > threeAgo;
+  }
+
   $: filteredGames = games
     .filter(game =>
       game.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -131,11 +138,14 @@
           <button
             class="flex-grow text-left px-3 py-2 rounded-lg transition-colors duration-200 ease-in-out
                    {selectedGame === game ? 'bg-primary text-white' : 'text-primary hover:bg-background-light'}
-                   focus:outline-none focus:ring-2 focus:ring-primary"
+                   focus:outline-none focus:ring-2 focus:ring-primary relative"
             on:click={() => selectGame(game)}
           >
             <span class="mr-3 text-xl">{game.icon}</span>
             <span class="font-medium">{game.name}</span>
+            {#if isNew(game.dateAdded) && !favorites.includes(game.id)}
+              <span class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">New</span>
+            {/if}
           </button>
           <button
             on:click={() => toggleFavorite(game.id)}
