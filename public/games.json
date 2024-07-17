@@ -1,5 +1,13 @@
 [
   {
+    "id": "bloxd-io",
+    "name": "Bloxd.io",
+    "description": "A 3D crafting sandbox with multiple game modes including building, parkour, and hide and seek.",
+    "embedUrl": "https://www.coolmathgames.com/0-bloxd-io",
+    "icon": "🧱",
+    "dateAdded": "2024-07-17"
+  },
+  {
     "id": "moto-x3m",
     "name": "Moto X3M",
     "description": "A time trial bike racing game with challenging levels, wild stunts, and obstacles.",
