@@ -186,8 +186,11 @@
                   <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full mr-2">New</span>
                 {/if}
                 <button
-                  on:click|stopPropagation={() => toggleFavorite(game.id)}
-                  class="text-lg opacity-0 group-hover:opacity-75 hover:opacity-100 transition-opacity duration-200"
+                  on:click|stopPropagation={(event) => {
+                    event.preventDefault();
+                    toggleFavorite(game.id);
+                  }}
+                  class="text-lg opacity-75 hover:opacity-100 transition-opacity duration-200"
                   title="Pin game"
                 >
                   📌
