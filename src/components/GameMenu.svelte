@@ -165,7 +165,9 @@
     {/if}
 
     <div>
-      <h3 class="text-lg font-semibold text-gray-700 mb-2">All Games</h3>
+      {#if filteredGames.some(game => favorites.includes(game.id))}
+        <h3 class="text-lg font-semibold text-gray-700 mb-2">All Games</h3>
+      {/if}
       <ul class="space-y-2">
         {#each filteredGames.filter(game => !favorites.includes(game.id)) as game}
           <li>
