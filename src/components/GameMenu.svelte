@@ -138,22 +138,24 @@
           <button
             class="flex-grow text-left px-3 py-2 rounded-lg transition-colors duration-200 ease-in-out
                    {selectedGame === game ? 'bg-primary text-white' : 'text-primary hover:bg-background-light'}
-                   focus:outline-none focus:ring-2 focus:ring-primary relative"
+                   focus:outline-none focus:ring-2 focus:ring-primary"
             on:click={() => selectGame(game)}
           >
             <span class="mr-3 text-xl">{game.icon}</span>
             <span class="font-medium">{game.name}</span>
+          </button>
+          <div class="flex items-center">
             {#if isNew(game.dateAdded) && !favorites.includes(game.id)}
-              <span class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">New</span>
+              <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full mr-2">New</span>
             {/if}
-          </button>
-          <button
-            on:click={() => toggleFavorite(game.id)}
-            class="p-1 text-primary focus:outline-none transition-opacity duration-200 ease-in-out ml-2"
-            title={favorites.includes(game.id) ? "Unpin game" : "Pin game"}
-          >
-            <span class="text-lg {favorites.includes(game.id) ? 'opacity-100' : 'opacity-0 group-hover:opacity-60 w-0 group-hover:w-auto overflow-hidden transition-all duration-200'}">📌</span>
-          </button>
+            <button
+              on:click={() => toggleFavorite(game.id)}
+              class="p-1 text-primary focus:outline-none transition-opacity duration-200 ease-in-out"
+              title={favorites.includes(game.id) ? "Unpin game" : "Pin game"}
+            >
+              <span class="text-lg {favorites.includes(game.id) ? 'opacity-100' : 'opacity-0 group-hover:opacity-60 w-0 group-hover:w-auto overflow-hidden transition-all duration-200'}">📌</span>
+            </button>
+          </div>
         </li>
     {/each}
   </ul>
