@@ -123,7 +123,7 @@
                 on:click={() => selectGame(game)}
               >
                 <div class="flex items-center">
-                  <span class="w-8 text-xl flex-shrink-0 text-center">{game.icon}</span>
+                  <span class="w-8 text-xl flex-shrink-0 text-center mr-2">{game.icon}</span>
                   <span class="font-medium">{game.name}</span>
                 </div>
                 <button
@@ -152,7 +152,7 @@
               on:click={() => selectGame(game)}
             >
               <div class="flex items-center">
-                <span class="w-8 text-xl flex-shrink-0 text-center">{game.icon}</span>
+                <span class="w-8 text-xl flex-shrink-0 text-center mr-2">{game.icon}</span>
                 <span class="font-medium text-left">{game.name}</span>
               </div>
               <div class="flex items-center">
