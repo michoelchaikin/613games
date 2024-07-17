@@ -185,18 +185,16 @@
                 {#if isNew(game.dateAdded)}
                   <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full mr-2">New</span>
                 {/if}
-                {#if !favorites.includes(game.id)}
-                  <button
-                    on:click|stopPropagation={(event) => {
-                      event.preventDefault();
-                      toggleFavorite(game.id);
-                    }}
-                    class="text-lg opacity-75 hover:opacity-100 transition-opacity duration-200"
-                    title="Pin game"
-                  >
-                    📌
-                  </button>
-                {/if}
+                <button
+                  on:click|stopPropagation={(event) => {
+                    event.preventDefault();
+                    toggleFavorite(game.id);
+                  }}
+                  class="text-lg opacity-75 hover:opacity-100 transition-opacity duration-200"
+                  title={favorites.includes(game.id) ? "Unpin game" : "Pin game"}
+                >
+                  {favorites.includes(game.id) ? '📌' : '🔗'}
+                </button>
               </div>
             </button>
           </li>
