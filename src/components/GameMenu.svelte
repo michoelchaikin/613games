@@ -90,26 +90,25 @@
     /* Custom scrollbar styles */
     .overflow-y-auto {
       scrollbar-width: thin;
-      scrollbar-color: #4a5568 #e2e8f0;
+      scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
     }
 
     .overflow-y-auto::-webkit-scrollbar {
-      width: 8px;
+      width: 6px;
     }
 
     .overflow-y-auto::-webkit-scrollbar-track {
-      background: #e2e8f0;
-      border-radius: 4px;
+      background: transparent;
     }
 
     .overflow-y-auto::-webkit-scrollbar-thumb {
-      background-color: #4a5568;
-      border-radius: 4px;
-      border: 2px solid #e2e8f0;
+      background-color: rgba(156, 163, 175, 0.5);
+      border-radius: 3px;
+      transition: background-color 0.2s ease;
     }
 
     .overflow-y-auto::-webkit-scrollbar-thumb:hover {
-      background-color: #2d3748;
+      background-color: rgba(107, 114, 128, 0.7);
     }
   </style>
 
