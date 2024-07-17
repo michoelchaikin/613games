@@ -112,5 +112,12 @@
     "description": "A fast-paced motorcycle racing game with multiple tracks and challenging obstacles.",
     "embedUrl": "https://www.crazygames.com/embed/crazy-motorcycle",
     "icon": "🏍️"
+  },
+  {
+    "id": "happy-glass",
+    "name": "Happy Glass",
+    "description": "A fun puzzle game where you draw lines to fill a glass with water and make it happy.",
+    "embedUrl": "https://www.crazygames.com/embed/happy-glass",
+    "icon": "🥛"
   }
 ]
