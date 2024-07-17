@@ -193,7 +193,7 @@
                   class="text-lg opacity-75 hover:opacity-100 transition-opacity duration-200"
                   title={favorites.includes(game.id) ? "Unpin game" : "Pin game"}
                 >
-                  {favorites.includes(game.id) ? '📌' : '🔗'}
+                  📌
                 </button>
               </div>
             </button>
