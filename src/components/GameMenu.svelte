@@ -62,112 +62,126 @@
     });
 </script>
 
-<div class="w-full md:w-64 bg-white shadow-lg p-4 flex flex-col h-screen fixed left-0 top-0 z-10 menu-slide"
-     class:menu-open={isMenuOpen}
-     on:touchstart={handleTouchStart}
-     on:touchend={handleTouchEnd}>
-
-<style>
-  .menu-slide {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .menu-open {
-    transform: translateX(0);
-  }
-
-  @media (min-width: 768px) {
+<div
+  class="w-full md:w-72 bg-gray-100 shadow-lg flex flex-col h-screen fixed left-0 top-0 z-10 menu-slide"
+  class:menu-open={isMenuOpen}
+  on:touchstart={handleTouchStart}
+  on:touchend={handleTouchEnd}
+>
+  <style>
     .menu-slide {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .menu-open {
       transform: translateX(0);
     }
-    .menu-slide:not(.menu-open) {
-      transform: translateX(-100%);
+
+    @media (min-width: 768px) {
+      .menu-slide {
+        transform: translateX(0);
+      }
+      .menu-slide:not(.menu-open) {
+        transform: translateX(-100%);
+      }
     }
-  }
-</style>
-  <div class="flex justify-between items-center mb-4">
-    <h2 class="text-2xl font-bold text-primary">🎮 Games</h2>
+  </style>
+
+  <div class="bg-primary text-white p-4 flex justify-between items-center">
+    <h2 class="text-2xl font-bold">🎮 Games</h2>
     <button
       on:click={() => {
         isMenuOpen = false;
-        console.log('Menu closed, isMenuOpen:', isMenuOpen);
       }}
-      class="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary rounded-full p-1"
+      class="text-white hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-white rounded-full p-1"
     >
-      <span class="text-lg">&#x2715;</span> <!-- X symbol -->
+      <span class="text-lg">&#x2715;</span>
     </button>
   </div>
-  <input
-    type="text"
-    placeholder="Search games..."
-    bind:value={searchTerm}
-    class="w-full p-2 mb-4 border border-primary bg-white text-primary placeholder-primary placeholder-opacity-70 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-  />
-  <div class="flex-grow overflow-y-auto games-list px-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+
+  <div class="p-4">
+    <input
+      type="text"
+      placeholder="Search games..."
+      bind:value={searchTerm}
+      class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+    />
+  </div>
+
+  <div class="flex-grow overflow-y-auto px-4 py-2 space-y-4">
     {#if filteredGames.some(game => favorites.includes(game.id))}
-      <h3 class="text-lg font-semibold text-primary mb-2">Pinned Games</h3>
-      <ul class="space-y-2 mb-4">
-        {#each filteredGames.filter(game => favorites.includes(game.id)) as game}
-          <li class="flex items-center group">
+      <div>
+        <h3 class="text-lg font-semibold text-gray-700 mb-2">Pinned Games</h3>
+        <ul class="space-y-2">
+          {#each filteredGames.filter(game => favorites.includes(game.id)) as game}
+            <li>
+              <button
+                class="w-full flex items-center justify-between p-2 rounded-lg transition-colors duration-200 ease-in-out
+                       {selectedGame === game ? 'bg-primary text-white' : 'text-gray-700 hover:bg-gray-200'}
+                       focus:outline-none focus:ring-2 focus:ring-primary"
+                on:click={() => selectGame(game)}
+              >
+                <div class="flex items-center">
+                  <span class="mr-3 text-xl">{game.icon}</span>
+                  <span class="font-medium">{game.name}</span>
+                </div>
+                <button
+                  on:click|stopPropagation={() => toggleFavorite(game.id)}
+                  class="text-lg opacity-75 hover:opacity-100"
+                  title="Unpin game"
+                >
+                  📌
+                </button>
+              </button>
+            </li>
+          {/each}
+        </ul>
+      </div>
+    {/if}
+
+    <div>
+      <h3 class="text-lg font-semibold text-gray-700 mb-2">All Games</h3>
+      <ul class="space-y-2">
+        {#each filteredGames.filter(game => !favorites.includes(game.id)) as game}
+          <li>
             <button
-              class="flex-grow text-left px-3 py-2 rounded-lg transition-colors duration-200 ease-in-out
-                     {selectedGame === game ? 'bg-primary text-white' : 'text-primary hover:bg-background-light'}
+              class="w-full flex items-center justify-between p-2 rounded-lg transition-colors duration-200 ease-in-out
+                     {selectedGame === game ? 'bg-primary text-white' : 'text-gray-700 hover:bg-gray-200'}
                      focus:outline-none focus:ring-2 focus:ring-primary"
               on:click={() => selectGame(game)}
             >
-              <span class="mr-3 text-xl">{game.icon}</span>
-              <span class="font-medium">{game.name}</span>
-            </button>
-            <button
-              on:click={() => toggleFavorite(game.id)}
-              class="p-1 text-primary focus:outline-none transition-opacity duration-200 ease-in-out ml-2"
-              title="Unpin game"
-            >
-              <span class="text-lg opacity-100">📌</span>
+              <div class="flex items-center">
+                <span class="mr-3 text-xl">{game.icon}</span>
+                <span class="font-medium">{game.name}</span>
+              </div>
+              <div class="flex items-center">
+                {#if isNew(game.dateAdded)}
+                  <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full mr-2">New</span>
+                {/if}
+                <button
+                  on:click|stopPropagation={() => toggleFavorite(game.id)}
+                  class="text-lg opacity-0 group-hover:opacity-75 hover:opacity-100 transition-opacity duration-200"
+                  title="Pin game"
+                >
+                  📌
+                </button>
+              </div>
             </button>
           </li>
         {/each}
       </ul>
+    </div>
+  </div>
 
-      <h3 class="text-lg font-semibold text-primary mb-2">All Games</h3>
-    {/if}
-    <ul class="space-y-2">
-      {#each filteredGames.filter(game => !favorites.includes(game.id)) as game}
-        <li class="flex items-center group">
-          <button
-            class="flex-grow text-left px-3 py-2 rounded-lg transition-colors duration-200 ease-in-out
-                   {selectedGame === game ? 'bg-primary text-white' : 'text-primary hover:bg-background-light'}
-                   focus:outline-none focus:ring-2 focus:ring-primary"
-            on:click={() => selectGame(game)}
-          >
-            <span class="mr-3 text-xl">{game.icon}</span>
-            <span class="font-medium">{game.name}</span>
-          </button>
-          <div class="flex items-center">
-            {#if isNew(game.dateAdded) && !favorites.includes(game.id)}
-              <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full mr-2">New</span>
-            {/if}
-            <button
-              on:click={() => toggleFavorite(game.id)}
-              class="p-1 text-primary focus:outline-none transition-opacity duration-200 ease-in-out"
-              title={favorites.includes(game.id) ? "Unpin game" : "Pin game"}
-            >
-              <span class="text-lg {favorites.includes(game.id) ? 'opacity-100' : 'opacity-0 group-hover:opacity-60 w-0 group-hover:w-auto overflow-hidden transition-all duration-200'}">📌</span>
-            </button>
-          </div>
-        </li>
-    {/each}
-  </ul>
-  <div class="mt-auto pt-4 border-t border-background">
+  <div class="mt-auto p-4 border-t border-gray-200">
     <button
       on:click={goToAbout}
-      class="w-full text-left p-3 rounded-lg transition-colors duration-200 ease-in-out text-primary hover:bg-background-light focus:outline-none focus:ring-2 focus:ring-primary"
+      class="w-full text-left p-3 rounded-lg transition-colors duration-200 ease-in-out text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"
     >
       <span class="mr-3 text-xl">ℹ️</span>
       <span class="font-medium">About</span>
     </button>
-    <p class="text-sm text-primary text-opacity-80 mt-4">&copy; {new Date().getFullYear()} 613games</p>
+    <p class="text-sm text-gray-500 mt-4 text-center">&copy; {new Date().getFullYear()} 613games</p>
   </div>
-</div>
 </div>
